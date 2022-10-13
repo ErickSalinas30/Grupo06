@@ -18,15 +18,23 @@ public class Nueva_clase2 {
         auto1.marca= "Chevrolet";
         auto1.nombrePropietario= "Erick Salinas";
         auto1.placa= "BBU-786";
+        auto1.color="Blanco";
+        auto1.year=2018;
+        auto1.precio= 25614.85;
         
         System.out.println(auto1.mostrarInfo()+" el pais de origen del auto es "+auto1.getPaisMarca());
+        System.out.println("El auto tiene "+auto1.calcularEdad(2022)+" años ");
+        System.out.println()
         
         var auto2 = new Auto();
         
         auto2.marca= "Toyota";
         auto2.nombrePropietario= "Gabriel Salas";
         auto2.placa= "FFU-786";
-       
+        auto2.color="Plateado";
+        auto2.year=2022;
+        auto2.precio= 30000;      
+        
         System.out.println(auto2.mostrarInfo()+" el pais de origen del auto es "+auto2.getPaisMarca());
          
         var auto3 = new Auto();
