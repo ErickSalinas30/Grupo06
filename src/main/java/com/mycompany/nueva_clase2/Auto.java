@@ -51,7 +51,25 @@ public class Auto {
     public int getNumeroContinente() {
         var retorno = 0;
         var paisMarca=this.getPaisMarca();
-        switch (paisMarca)
+        switch (paisMarca){
+            case "EEUU":
+                retorno=2;
+                break;
+            case "Asia":
+                retorno=3;
+                break;
+            case "Africa":
+                retorno=1;
+                break;
+            case "Europa":
+                retorno=4;
+                break;
+            case "Oceania":
+                retorno=5;
+                break;
+            default:
+                retorno="Vive en el oceano";
+        }
         
         
         
@@ -75,6 +93,12 @@ public class Auto {
             case "C":
                 retorno="Carchi";
                 break;
+            case "X":
+                retorno="Cotopaxi";
+                break;
+            case "H":
+                retorno="Chimborazo";
+                break;
             default:
                 retorno="Provincia no definida";
                                                           
@@ -85,7 +109,7 @@ public class Auto {
     
     public double calcularIVA(){
         var retorno=0.0d;
-        
+        retorno=+this.precio*0.12;
         return retorno;
     }
     
@@ -101,10 +125,12 @@ public class Auto {
     
     //si la edad es de 5 años el costo de la matricula es de 10% precio
     //
-    public double costoMatricula(int yearActual){
-        var retorno="";
+     public double calcularCostoMatricula(int yearActual){
+        var retorno=0.0d;
+        var edad=this.calcularEdad(yearActual);
+    
         
-        return retorno;        
+        return retorno;
     }
     
     public String esTaxi(){
@@ -113,11 +139,26 @@ public class Auto {
         return retorno;    
     }
     
-    public boolean sePuedeAsegurar(){
+    public boolean sePuedeAsegurar(int yearActual){
         var retorno=false;
         var edad=this.calcularEdad(yearActual);
         if(edad<=5 && this.precio<10000)
-        
+        {
+            retorno=true;
+        }else{
+            if(edad>=10 && edad<=15 && this.precio>=10000 && this.precio<=20000){
+                retorno=true;
+            }else{
+                if(edad>15 && this.precio>=20000 && this.precio<=30000){
+                    retorno=true;                    
+                }else{
+                    if(edad>15){
+                        retorno=false;
+                    }
+                }
+            }
+            
+        }
         return retorno;
     }
     
