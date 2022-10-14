@@ -16,6 +16,7 @@ public class Auto {
     int year;
     String color;
     double precio;
+    int cilindrajeMotor;
 
     public String mostrarInfo() {
         var retorno = " El auto tiene placa " + this.placa + " el dueño del auto es: " 
@@ -50,16 +51,16 @@ public class Auto {
 
     public int getNumeroContinente() {
         var retorno = 0;
-        var paisMarca=this.getPaisMarca();
-        switch (paisMarca){
+        var marcaPais=this.getPaisMarca();
+        switch(marcaPais){
+            case "Africa":
+                retorno=1;
+                break;
             case "EEUU":
                 retorno=2;
                 break;
             case "Asia":
                 retorno=3;
-                break;
-            case "Africa":
-                retorno=1;
                 break;
             case "Europa":
                 retorno=4;
@@ -68,11 +69,9 @@ public class Auto {
                 retorno=5;
                 break;
             default:
-                retorno="Vive en el oceano";
+                retorno=0;
         }
-        
-        
-        
+                        
         return retorno;
     }
 
@@ -162,8 +161,8 @@ public class Auto {
         return retorno;
     }
     
-    public boolean esClasico(yearActual: int,yearClasico: int ){
-        var retorno="";
+    public boolean esClasico(int yearActual, int yearClasico){
+        var retorno=false;
         
         return retorno;      
     }
@@ -176,16 +175,47 @@ public class Auto {
         return retorno;      
     }
     
-    public String esPlacaValida(){
-        var retorno="";
+    public boolean esPlacaValida(){
+        var retorno=false;
+        var longitud=this.placa.length();
+        if(longitud==7){
+            var caracter1=this.placa.charAt(0);
+            var caracter2=this.placa.charAt(1);
+            var caracter3=this.placa.charAt(2);
+            var caracter4=this.placa.charAt(3);
+            var caracter5=this.placa.charAt(4);
+            var caracter6=this.placa.charAt(5);
+            var caracter7=this.placa.charAt(6);
+            if(caracter1==letra )           
+                    
+        }
+            
+        
+        
         
         return retorno;      
     }
     
-    public String tasaSolidaria(){
-        var retorno="";
+    
+    
+    /*
+    Edad >20: tasa solidaria 0
+    Edad 0-5 y cilindraje < 1500 : tasa solidaria 15% costo
+    Edad 0-5 y cilindraje >1500 <2000 : tasa solidaria 20% costo
+    Edad 0-5 y cilindraje > 2000 : tasa solidaria 25% costo
+    Edad 5-15 y cilindraje > 1500  <2000 : tasa solidaria 15% costo
+    Edad 5-15 y cilindraje < 1500 : tasa solidaria 10% costo
+    Edad 5-15 y cilindraje >2000 : tasa solidaria 18% costo
+    Edad 15-20 : tasa solidaria 5%
+    Edad >20: tasa solidaria 0
+    
+    */
+    public double calcularTasaSolidaria(int yearActual, double limitePrecio){
+        var retorno=0.0d;
         
         return retorno;      
     }
+    
+    
     
 }
